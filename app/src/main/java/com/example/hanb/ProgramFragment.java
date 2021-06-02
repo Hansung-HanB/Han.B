@@ -59,25 +59,4 @@ public class ProgramFragment extends Fragment {
         setRetainInstance(true);
     }
 
-    public static class ReviewRequest extends StringRequest {
-
-        // 서버 URL 설정 ( PHP 파일 연동 )
-        final static private String URL = "http://15.164.102.181//Register3.php";
-        private Map<String, String> map;
-
-
-        public ReviewRequest(String program, String postscript, float ratingbar, Response.Listener<String> listener) {
-            super(Method.POST, URL, listener, null);
-
-            map = new HashMap<>();
-            map.put("program", program);
-            map.put("postscript", postscript);
-            map.put("ratingbar",ratingbar+"");
-        }
-
-        @Override
-        protected Map<String, String> getParams() throws AuthFailureError {
-            return map;
-        }
-    }
 }
