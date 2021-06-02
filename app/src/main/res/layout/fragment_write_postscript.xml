@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id = "@+id/write_postscript_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".WritePostscriptFragment">
+
+    <TextView
+        android:id="@+id/logo_write_postscript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="HAN.B"
+        android:textColor="#3498DB"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:id="@+id/rearch_write_postscript"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/edittext_rounded_corner_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_write_postscript" />
+
+    <RatingBar
+        android:id="@+id/ratingBar_write_postscript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:isIndicator="false"
+        android:max="5"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="0.5"
+        android:progressTint="#FFE400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rearch_write_postscript" />
+
+    <EditText
+        android:id="@+id/psText_write_postscript"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:background="@drawable/edittext_rounded_corner_rectangle"
+        android:hint="여기에 후기를 작성하세요."
+        android:maxLength="500"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/enrollButton_write_postscript"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar_write_postscript" />
+
+    <Button
+        android:id="@+id/enrollButton_write_postscript"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="100dp"
+        android:text="등록"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:backgroundTint="#3498DB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
