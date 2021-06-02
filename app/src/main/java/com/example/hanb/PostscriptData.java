@@ -19,7 +19,7 @@ public class PostscriptData {
         ArrayList<PostscriptData> contacts = new ArrayList<PostscriptData>();
 
         for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new PostscriptData("Program"+i, "후기"+i, i%5));
+            contacts.add(new PostscriptData("Program_안녕하세요"+i, "후기"+i, i%5));
         }
 
         return contacts;
