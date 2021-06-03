@@ -14,10 +14,11 @@ public class ReviewRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public ReviewRequest(String program, String postscript, float ratingbar, Response.Listener<String> listener) {
+    public ReviewRequest(String userID, String program, String postscript, float ratingbar, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
+        map.put("userID", userID);
         map.put("program", program);
         map.put("postscript", postscript);
         map.put("ratingbar",ratingbar+"");
