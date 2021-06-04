@@ -1,14 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="7"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <TextView
             android:paddingTop="10dp"
@@ -20,49 +20,35 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="1,2">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <RatingBar
                     android:layout_column="1"
                     android:id="@+id/ratingBar_postscript_item"
                     style="@style/Widget.AppCompat.RatingBar.Indicator"
                     android:layout_gravity="left"
-                    android:layout_width="match_parent"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:isIndicator="true"
                     android:max="5"
                     android:numStars="5"
                     android:rating="0"
-                    android:stepSize="0.5" />
-            </TableRow>
+                    android:stepSize="0.5"
+                    android:progressTint="@color/yellow"
+                    android:progressBackgroundTint="@color/yellow"
+                    android:secondaryProgressTint="@color/yellow"
+                    />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
 
                 <TextView
+                    android:id="@+id/postscript_postscipt_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_column="1"
                     android:layout_gravity="left"
-                    android:id="@+id/postscript_postscipt_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:hint="비교과후기"
-                    android:paddingTop="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="20dp"
-                    android:textSize="20sp" />
 
+                    android:textSize="20sp"
+                    />
 
-            </TableRow>
-        </TableLayout>
     </LinearLayout>
 
 </LinearLayout>

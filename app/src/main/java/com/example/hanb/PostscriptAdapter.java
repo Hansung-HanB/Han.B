@@ -31,17 +31,15 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
         return holder;
     }
 
-    /*
-     * Todo 만들어진 ViewHolder에 data 삽입 ListView의 getView와 동일
-     *
-     * */
+
+     // Todo 만들어진 ViewHolder에 data 삽입 ListView의 getView와 동일
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         // 각 위치에 문자열 세팅
         int itemposition = position;
         holder.program.setText(list.get(itemposition).program);
         holder.postscript.setText(list.get(itemposition).postscript);
-        holder.ratingBar.setRating(list.get(itemposition).ratingBar);
+        holder.ratingBar.setRating(list.get(itemposition).ratingbar);
         Log.e("StudyApp", "onBindViewHolder" + itemposition);
     }
 
