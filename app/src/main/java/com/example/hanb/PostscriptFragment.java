@@ -37,6 +37,8 @@ public class PostscriptFragment extends Fragment {
         adapter = new PostscriptAdapter(getActivity(), list); //어댑터에 PostscriptData에서 불러온 배열 저장
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())); // 리사이클러뷰 레이아웃 지정
         recyclerView.setAdapter(adapter); //리사이클러뷰 어댑터 설정
+        //layout..setOnRefreshListener
+
 
         //후기 쓰기 버튼
         writeButton_postscript = rootView.findViewById(R.id.writeButton_postscript);

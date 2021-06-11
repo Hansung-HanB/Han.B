@@ -58,8 +58,8 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
 
         public Holder(View view){
             super(view);
-            program = (TextView) view.findViewById(R.id.program_postscipt_item);
-            postscript = (TextView) view.findViewById(R.id.postscript_postscipt_item);
+            program = (TextView) view.findViewById(R.id.program_postscript_item);
+            postscript = (TextView) view.findViewById(R.id.postscript_postscript_item);
             ratingBar = (RatingBar) view.findViewById(R.id.ratingBar_postscript_item);
         }
     }

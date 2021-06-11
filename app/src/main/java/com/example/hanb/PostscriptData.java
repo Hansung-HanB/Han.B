@@ -64,7 +64,7 @@ public class PostscriptData extends AppCompatActivity {
                         String UserID=jsonObject.getString("userID");
 
                         // PostscriptData 리스트형태로 저장
-                        contacts.add(new PostscriptData(program,postscript,ratingbar));
+                        contacts.add(0, new PostscriptData(program,postscript,ratingbar)); //위에 것 이 가장 최근 것
                     }
                 } catch (JSONException e) {e.printStackTrace();}
 
@@ -76,15 +76,20 @@ public class PostscriptData extends AppCompatActivity {
             }
         });
 
+        for (int i = 1; i <= num; i++) {
+            //for (int i = 1; i <= numContacts; i++) {
+
+            contacts.add(new PostscriptData(program, postscript, ratingbar));
+
+            //Toast.makeText(MyApplication.ApplicationContext(), "데이터를 불러오고 있습니다.", Toast.LENGTH_SHORT).show();
+
+        }
+
         //실제 요청 작업을 수행해주는 요청큐 객체 생성
         RequestQueue requestQueue= Volley.newRequestQueue(MyApplication.ApplicationContext());
         //요청큐에 요청 객체 생성
         requestQueue.add(jsonArrayRequest);
 
-        for (int i = 1; i <= num; i++) {
-        //for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new PostscriptData(program, postscript, ratingbar));
-        }
 
         return contacts;
     }

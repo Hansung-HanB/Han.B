@@ -2,7 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:background="@drawable/postscript_layout_border"
+    >
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,21 +14,20 @@
         android:orientation="vertical">
 
         <TextView
-            android:paddingTop="10dp"
-            android:id="@+id/program_postscipt_item"
+            android:paddingTop="5dp"
+            android:id="@+id/program_postscript_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="비교과명"
-            android:paddingBottom="5dp"
-            android:textSize="30sp"
+
+            android:textSize="15sp"
             android:textStyle="bold" />
 
                 <RatingBar
                     android:layout_column="1"
                     android:id="@+id/ratingBar_postscript_item"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_gravity="left"
-                    android:layout_width="180dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:isIndicator="true"
                     android:max="5"
@@ -36,17 +38,16 @@
                     android:progressBackgroundTint="@color/yellow"
                     android:secondaryProgressTint="@color/yellow"
                     />
+        <!-- style="@style/Widget.AppCompat.RatingBar.Indicator" 레이팅 바 크기 설정-->
 
 
                 <TextView
-                    android:id="@+id/postscript_postscipt_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/postscript_postscript_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="1"
-                    android:layout_gravity="left"
-                    android:hint="비교과후기"
 
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     />
 
     </LinearLayout>
