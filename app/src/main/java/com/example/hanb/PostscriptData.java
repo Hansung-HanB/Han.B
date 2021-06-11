@@ -29,7 +29,7 @@ public class PostscriptData extends AppCompatActivity {
         this.postscript = postscript;
         this.ratingbar = ratingbar;
     }
-    
+
     // 입력받은 숫자의 리스트생성
     //public static ArrayList<PostscriptData> createContactsList(int numContacts) {
     public static ArrayList<PostscriptData> createContactsList() {
@@ -55,7 +55,7 @@ public class PostscriptData extends AppCompatActivity {
                 try {
                     num=response.length();
                     for(int i=0;i<response.length();i++){
-                    //for(int i=0;i<numContacts;i++){
+                        //for(int i=0;i<numContacts;i++){
                         JSONObject jsonObject= response.getJSONObject(i);
 
                         String program=jsonObject.getString("program");

@@ -51,7 +51,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:paddingLeft="20dp"
-            android:text="비교과\n포인트"
+            android:hint="비교과\n포인트"
             android:gravity="center"
             android:textAlignment="center"
             android:textColor="@color/black"

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
-        android:id="@+id/rearch_write_postscript"
+        android:id="@+id/search_write_postscript"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
@@ -43,7 +43,7 @@
         android:progressTint="#FFE400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rearch_write_postscript" />
+        app:layout_constraintTop_toBottomOf="@+id/search_write_postscript" />
 
     <EditText
         android:id="@+id/psText_write_postscript"
