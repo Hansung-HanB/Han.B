@@ -20,24 +20,25 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class PostscriptFragment extends Fragment {
-    private RecyclerView recyclerView;
-    private PostscriptAdapter adapter;
-    private Button writeButton_postscript;
-    private ArrayList<PostscriptData> list = new ArrayList<>();
+    private RecyclerView recyclerView; //목록 뷰 선언
+    private PostscriptAdapter adapter; //어댑터
+    private Button writeButton_postscript; //글쓰기 버튼
+    private ArrayList<PostscriptData> list = new ArrayList<>(); //배열 형태
 
     @SuppressLint("ResourceType")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_postscript, container, false);
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_main_list);
-        list = PostscriptData.createContactsList(10);
-        recyclerView.setHasFixedSize(true);
-        adapter = new PostscriptAdapter(getActivity(), list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_main_list); // 개별 행 모양 불러오기
+        //list = PostscriptData.createContactsList(10); // 보여줄 행 개수
+        list = PostscriptData.createContactsList(); // 보여줄 행 개수
+        recyclerView.setHasFixedSize(true); 
+        adapter = new PostscriptAdapter(getActivity(), list); //어댑터에 PostscriptData에서 불러온 배열 저장
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())); // 리사이클러뷰 레이아웃 지정
+        recyclerView.setAdapter(adapter); //리사이클러뷰 어댑터 설정
+        //layout..setOnRefreshListener
 
-        Log.e("Frag", "MainFragment");
 
         //후기 쓰기 버튼
         writeButton_postscript = rootView.findViewById(R.id.writeButton_postscript);

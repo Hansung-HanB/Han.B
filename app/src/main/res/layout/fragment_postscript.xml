@@ -42,16 +42,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_postscript" />
 
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_main_list"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="494dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/rearch_postscript"
-        tools:layout_editor_absoluteX="0dp"
         android:scrollbarFadeDuration="0"
         android:scrollbarSize="5dp"
         android:scrollbarThumbVertical="@android:color/darker_gray"
-        android:scrollbars="vertical"/>
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rearch_postscript"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
