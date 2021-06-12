@@ -40,7 +40,6 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
         holder.program.setText(list.get(itemposition).program);
         holder.postscript.setText(list.get(itemposition).postscript);
         holder.ratingBar.setRating(list.get(itemposition).ratingbar);
-        Log.e("StudyApp", "onBindViewHolder" + itemposition);
     }
 
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다

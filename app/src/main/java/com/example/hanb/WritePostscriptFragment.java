@@ -43,11 +43,7 @@ public class WritePostscriptFragment extends Fragment {
 
     //ViewGroup viewGroup;
 
-
-
     //public String userID;
-
-
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
@@ -59,8 +55,6 @@ public class WritePostscriptFragment extends Fragment {
 
 
         //Bundle 받기
-
-
         setHasOptionsMenu(true);
         String userID;
         Bundle bundle = getArguments();
