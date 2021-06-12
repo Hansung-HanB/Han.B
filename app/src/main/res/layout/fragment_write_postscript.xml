@@ -20,12 +20,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
+
+    <AutoCompleteTextView
+        android:hint="비교과명 입력"
         android:id="@+id/search_write_postscript"
+        android:dropDownWidth="350dp"
+        android:dropDownHeight="300dp"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
+        android:completionThreshold="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_write_postscript" />
@@ -48,9 +53,9 @@
     <EditText
         android:id="@+id/psText_write_postscript"
         android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
-        android:hint="여기에 후기를 작성하세요."
+        android:hint="여기에 후기를 작성하세요. (최대 500자)"
         android:maxLength="500"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
