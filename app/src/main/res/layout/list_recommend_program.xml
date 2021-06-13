@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/recommend_program_list"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:background="@drawable/home_rank_rounded_corner_rectangle"
+        android:gravity="center"
+        android:hint="비교과프로그램 명"
+        android:textColor="@color/black"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/program_grade_list"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/home_rank_rounded_corner_rectangle"
+        android:gravity="center"
+        android:hint="평점"
+        android:textColor="@color/black"
+        android:textSize="16dp"/>
+
+</LinearLayout>

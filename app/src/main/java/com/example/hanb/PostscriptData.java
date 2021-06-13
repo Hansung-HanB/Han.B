@@ -1,20 +1,15 @@
 package com.example.hanb;
 
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class PostscriptData extends AppCompatActivity {
@@ -75,9 +70,7 @@ public class PostscriptData extends AppCompatActivity {
                         post.add(0, new PostscriptData(program_2,postscript_2,ratingbar_2)); //위에 것 이 가장 최근 것
                     }
                 } catch (JSONException e) {e.printStackTrace();}
-
             }
-
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -96,7 +89,6 @@ public class PostscriptData extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(MyApplication.ApplicationContext());
         //요청큐에 요청 객체 생성
         requestQueue.add(jsonArrayRequest);
-
 
         return post;
     }

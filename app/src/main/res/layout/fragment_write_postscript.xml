@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/write_postscript_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id = "@+id/write_postscript_layout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".WritePostscriptFragment">
 
     <TextView
@@ -20,17 +20,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <AutoCompleteTextView
-        android:hint="비교과명 입력"
         android:id="@+id/search_write_postscript"
-        android:dropDownWidth="350dp"
-        android:dropDownHeight="300dp"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:completionThreshold="1"
+        android:dropDownWidth="350dp"
+        android:dropDownHeight="300dp"
+        android:hint="비교과명 입력"
+        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_write_postscript" />
@@ -43,9 +43,9 @@
         android:isIndicator="false"
         android:max="5"
         android:numStars="5"
+        android:progressTint="#FFE400"
         android:rating="0"
         android:stepSize="0.5"
-        android:progressTint="#FFE400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_write_postscript" />
@@ -53,7 +53,7 @@
     <EditText
         android:id="@+id/psText_write_postscript"
         android:layout_width="350dp"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:hint="여기에 후기를 작성하세요. (최대 500자)"
         android:maxLength="500"
@@ -70,11 +70,11 @@
         android:id="@+id/enrollButton_write_postscript"
         android:layout_width="210dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="100dp"
-        android:text="등록"
-        android:textStyle="bold"
-        android:textSize="16sp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="#3498DB"
+        android:text="등록"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

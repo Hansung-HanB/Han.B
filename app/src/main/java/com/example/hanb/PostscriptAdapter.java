@@ -1,15 +1,12 @@
 package com.example.hanb;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +27,6 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
         Holder holder = new Holder(view);
         return holder;
     }
-
 
      // Todo 만들어진 ViewHolder에 data 삽입 ListView의 getView와 동일
     @Override
@@ -53,7 +49,6 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
         public TextView program;
         public TextView postscript;
         public RatingBar ratingBar;
-
 
         public Holder(View view){
             super(view);
