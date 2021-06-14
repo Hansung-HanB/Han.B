@@ -1,7 +1,6 @@
 package com.example.hanb;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -11,11 +10,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -69,19 +66,17 @@ public class SignUpActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 };
                 // 서버로 Volley를 이용해서 요청을 함.
                 RegisterRequest registerRequest = new RegisterRequest(userName, userNick, userID, userPass, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
                 queue.add(registerRequest);
-
             }
-
         });
     }
 
+    //키보드 내리기
     @Override
     public boolean dispatchTouchEvent(MotionEvent e) {
         View focusView = getCurrentFocus();

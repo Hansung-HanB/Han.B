@@ -4,23 +4,18 @@ import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class PostscriptFragment extends Fragment {
@@ -75,7 +70,6 @@ public class PostscriptFragment extends Fragment {
             }
         });
 
-
         //후기 쓰기 버튼
         writeButton_postscript = rootView.findViewById(R.id.writeButton_postscript);
         writeButton_postscript.setOnClickListener(v -> {
@@ -87,6 +81,4 @@ public class PostscriptFragment extends Fragment {
             });
         return rootView;
     }
-
-
 }

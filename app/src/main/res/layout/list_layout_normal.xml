@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:background="@drawable/postscript_layout_border"
-    >
-
+    android:background="@drawable/postscript_layout_border">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,14 +37,6 @@
             android:textStyle="bold" />
 
         <!-- style="@style/Widget.AppCompat.RatingBar.Indicator" 레이팅 바 크기 설정-->
-
-        <TextView
-            android:id="@+id/postscript_postscript_item"
-            android:paddingTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="15sp"
-            />
 
     </LinearLayout>
 
