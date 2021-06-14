@@ -11,6 +11,23 @@
         android:layout_weight="7"
         android:orientation="vertical">
 
+        <RatingBar
+            android:layout_column="1"
+            android:id="@+id/ratingBar_postscript_item"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_gravity="left"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:max="5"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="0.5"
+            android:progressTint="@color/yellow"
+            android:progressBackgroundTint="@color/yellow"
+            android:secondaryProgressTint="@color/yellow"
+            />
+
         <TextView
             android:paddingTop="5dp"
             android:id="@+id/program_postscript_item"
@@ -19,32 +36,8 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-                <RatingBar
-                    android:layout_column="1"
-                    android:id="@+id/ratingBar_postscript_item"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_gravity="left"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="true"
-                    android:max="5"
-                    android:numStars="5"
-                    android:rating="0"
-                    android:stepSize="0.5"
-                    android:progressTint="@color/yellow"
-                    android:progressBackgroundTint="@color/yellow"
-                    android:secondaryProgressTint="@color/yellow"
-                    />
         <!-- style="@style/Widget.AppCompat.RatingBar.Indicator" 레이팅 바 크기 설정-->
 
-                <TextView
-                    android:id="@+id/postscript_postscript_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-
-                    android:textSize="15sp"
-                    />
     </LinearLayout>
 
 </LinearLayout>
