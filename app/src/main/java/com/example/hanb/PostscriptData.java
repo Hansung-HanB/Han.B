@@ -60,9 +60,9 @@ public class PostscriptData extends AppCompatActivity {
                     for(int i=0;i<response.length();i++){
                         //for(int i=0;i<numContacts;i++){
                         JSONObject jsonObject= response.getJSONObject(i);
-
                         program_2=jsonObject.getString("program");
                         postscript_2=jsonObject.getString("postscript");
+                        postscript_2 = postscript_2.replace("\n", "");
                         ratingbar_2= Float.parseFloat(jsonObject.getString("ratingbar")); //no가 문자열이라서 바꿔야함.
                         String UserID=jsonObject.getString("userID");
 
