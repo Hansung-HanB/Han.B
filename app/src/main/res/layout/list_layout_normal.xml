@@ -36,6 +36,13 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_gravity="left"
+            android:id="@+id/postscript_postscript_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
         <!-- style="@style/Widget.AppCompat.RatingBar.Indicator" 레이팅 바 크기 설정-->
 
     </LinearLayout>
