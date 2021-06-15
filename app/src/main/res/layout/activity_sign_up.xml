@@ -46,17 +46,18 @@
         app:layout_constraintTop_toBottomOf="@+id/signUp_signUp" />
 
     <TextView
-        android:id="@+id/nick_signUp"
+        android:id="@+id/major_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="60dp"
-        android:text="닉네임"
+        android:text="소속"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName_signUp" />
+
 
     <TextView
         android:id="@+id/undergrad_signUp"
@@ -69,7 +70,9 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nick_signUp" />
+        app:layout_constraintTop_toBottomOf="@+id/major_signUp" />
+
+
 
     <TextView
         android:id="@+id/pw_signUp"
@@ -97,15 +100,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUp_signUp" />
 
-    <EditText
-        android:id="@+id/nickText_signUp"
+    <Spinner
+        android:id="@+id/spinner_signUp"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
-        android:hint="10자리이내"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameText_signUp" />
@@ -122,7 +124,7 @@
         android:maxLength="7"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nickText_signUp" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_signUp" />
 
     <EditText
         android:id="@+id/pwText_signUp"
