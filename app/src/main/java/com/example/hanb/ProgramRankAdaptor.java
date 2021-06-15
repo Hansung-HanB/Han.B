@@ -6,6 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 
 public class ProgramRankAdaptor extends RecyclerView.Adapter<ProgramRankAdaptor.ViewHolder> {
@@ -36,15 +41,23 @@ public class ProgramRankAdaptor extends RecyclerView.Adapter<ProgramRankAdaptor.
         return rankProgramData.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
        TextView rankProgram;
        TextView rankGrade;
+
+       //String program;
+       //Float ratingbar;
 
        ViewHolder(View item) {
            super(item);
 
            rankProgram = itemView.findViewById(R.id.rank_program_list);
            rankGrade = itemView.findViewById(R.id.rank_program_grade_list);
+
+           //rankProgram.setText(program);
+           //rankGrade.setText(ratingbar.toString());
+
        }
     }
 }

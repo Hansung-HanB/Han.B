@@ -1,10 +1,14 @@
 package com.example.hanb;
 
+import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +18,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.SearchView;
 import android.widget.Toast;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,9 +40,14 @@ public class WritePostscriptFragment extends Fragment {
             "내외국인 재학생 연합봉사단", "종합심리검사", "단기영어연수", "한성토익강좌", "공무원시험특강", "복학생워크숍", "트랙제 적응 향상 기초학습역량 프로그램", "학습전략검사", "한성대학교 캠퍼스타운 사업단 서포터즈", "상상력교양대학 서포터즈",
             "집단상담프로그램", "한성점프업", "영자신문사", "한성대신문사", "글로벌튜터링", "HS 한성인의 도전 이야기"};
 
+
     //ViewGroup viewGroup;
 
+
+
     //public String userID;
+
+
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
@@ -44,7 +56,11 @@ public class WritePostscriptFragment extends Fragment {
         //userID = ((LoginActivity) getActivity()).findViewById(R.id.userNameText_login);
         view = inflater.inflate(R.layout.fragment_write_postscript, container, false);
 
+
+
         //Bundle 받기
+
+
         setHasOptionsMenu(true);
         String userID;
         Bundle bundle = getArguments();
@@ -53,15 +69,24 @@ public class WritePostscriptFragment extends Fragment {
             userID = bundle.getString("userID");
         }
 
+
+
+
         enrollButton_write_postscript = view.findViewById(R.id.enrollButton_write_postscript);
         write_postscript_layout = view.findViewById(R.id.write_postscript_layout);
         search_write_postscript = view.findViewById(R.id.search_write_postscript); //비교과명
         psText_write_postscript = view.findViewById(R.id.psText_write_postscript); //비교과후기
         ratingBar_write_postscript = view.findViewById(R.id.ratingBar_write_postscript); //비교과평점
 
+
         enrollButton_write_postscript.setOnClickListener(new View.OnClickListener() {
+
             @Override
+
             public void onClick(View view) {
+
+
+
                 String program = search_write_postscript.getText().toString();
                 String postscript = psText_write_postscript.getText().toString();
                 float ratingbar = ratingBar_write_postscript.getRating();
@@ -73,6 +98,7 @@ public class WritePostscriptFragment extends Fragment {
                 if(extra != null){
                     userID = extra.getString("userID");
                 } else userID="1871002";
+
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -100,10 +126,14 @@ public class WritePostscriptFragment extends Fragment {
                 ReviewRequest reviewRequest = new ReviewRequest(program, postscript, ratingbar, userID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getActivity());
                 queue.add(reviewRequest);
+
+                RecommendRequest recommendRequest = new RecommendRequest(userID, program, ratingbar, responseListener);
+                RequestQueue queue2 = Volley.newRequestQueue(getActivity());
+                queue2.add(recommendRequest);
             }
         });
 
-        // 키보드 내리기
+
         write_postscript_layout.setOnClickListener(v -> {
             InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(psText_write_postscript.getWindowToken(), 0);
