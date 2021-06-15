@@ -37,12 +37,14 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_layout"
         android:layout_width="match_parent"
-        android:layout_height="490dp"
-        android:layout_marginTop="19dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="44dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writeButton_postscript">
+        app:layout_constraintTop_toBottomOf="@+id/logo_postscript">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_main_list"
@@ -57,6 +59,6 @@
             app:layout_constraintTop_toBottomOf="@+id/rearch_postscript"
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="0dp" />
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
