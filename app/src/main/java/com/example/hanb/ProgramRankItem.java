@@ -11,4 +11,9 @@ public class ProgramRankItem {
     public String getRankProgram() { return this.rankProgram; }
 
     public String getRankProgramGrade() { return this.rankProgramGrade; }
+
+
+
+
+
 }
