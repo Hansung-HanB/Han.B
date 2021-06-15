@@ -34,12 +34,11 @@ public class WritePostscriptFragment extends Fragment {
             "집단상담프로그램", "한성점프업", "영자신문사", "한성대신문사", "글로벌튜터링", "HS 한성인의 도전 이야기"};
 
     //ViewGroup viewGroup;
-
     //public String userID;
+
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-
         //viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_write_postscript,container,false);
         //userID = ((LoginActivity) getActivity()).findViewById(R.id.userNameText_login);
         view = inflater.inflate(R.layout.fragment_write_postscript, container, false);

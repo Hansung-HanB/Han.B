@@ -72,8 +72,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/major_signUp" />
 
-
-
     <TextView
         android:id="@+id/pw_signUp"
         android:layout_width="wrap_content"
@@ -102,7 +100,7 @@
 
     <Spinner
         android:id="@+id/spinner_signUp"
-        android:layout_width="wrap_content"
+        android:layout_width="210dp"
         android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
