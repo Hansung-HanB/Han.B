@@ -11,12 +11,12 @@ public class RegisterRequest extends StringRequest {
     final static private String URL = "http://15.164.102.181//Register.php";
     private Map<String, String> map;
 
-    public RegisterRequest(String userName, String userNick, String userID, String userPassword, Response.Listener<String> listener) {
+    public RegisterRequest(String userName, String userMajor, String userID, String userPassword, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("userName", userName);
-        map.put("userNick", userNick);
+        map.put("userMajor", userMajor);
         map.put("userID",userID);
         map.put("userPassword", userPassword + "");
     }
