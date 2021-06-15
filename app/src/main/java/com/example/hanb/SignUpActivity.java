@@ -1,23 +1,29 @@
 package com.example.hanb;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText et_id, et_pass, et_name, et_nick;
+    private EditText et_id, et_pass, et_name;
     private Button btn_register;
     private Button btn_cancel;
 
@@ -26,13 +32,21 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+
         // 아이디 값 찾아주기
         et_id = findViewById(R.id.undergradText_signUp);
         et_pass = findViewById(R.id.pwText_signUp);
         et_name = findViewById(R.id.userNameText_signUp);
-        et_nick = findViewById(R.id.nickText_signUp);
+
         btn_cancel = findViewById(R.id.cancelButton_signUp);
         btn_register = findViewById(R.id.signUpButton_signUp);
+
+
+        Spinner sp_major = (Spinner)findViewById(R.id.spinner_signUp);
+        ArrayAdapter majorAdapter = ArrayAdapter.createFromResource(this, R.array.major_array, android.R.layout.simple_spinner_item);
+        majorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_major.setAdapter(majorAdapter);
+
 
         btn_cancel.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -47,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String userID = et_id.getText().toString();
                 String userPass = et_pass.getText().toString();
                 String userName = et_name.getText().toString();
-                String userNick = et_nick.getText().toString();
+                String userMajor = sp_major.getSelectedItem().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -66,17 +80,19 @@ public class SignUpActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
                 };
                 // 서버로 Volley를 이용해서 요청을 함.
-                RegisterRequest registerRequest = new RegisterRequest(userName, userNick, userID, userPass, responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(userName, userMajor, userID, userPass, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
                 queue.add(registerRequest);
+
             }
+
         });
     }
 
-    //키보드 내리기
     @Override
     public boolean dispatchTouchEvent(MotionEvent e) {
         View focusView = getCurrentFocus();
@@ -94,4 +110,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(e);
     }
+
+
 }

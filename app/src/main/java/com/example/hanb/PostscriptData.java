@@ -17,11 +17,9 @@ public class PostscriptData extends AppCompatActivity {
     public String postscript;
     public float ratingbar;
     static int num;
-
     static String program_2;
     static String postscript_2;
     static float ratingbar_2;
-
     static ArrayList<PostscriptData> post = new ArrayList<PostscriptData>();
 
     // 화면에 표시될 문자열 초기화

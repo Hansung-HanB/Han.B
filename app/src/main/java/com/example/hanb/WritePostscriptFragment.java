@@ -100,6 +100,10 @@ public class WritePostscriptFragment extends Fragment {
                 ReviewRequest reviewRequest = new ReviewRequest(program, postscript, ratingbar, userID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getActivity());
                 queue.add(reviewRequest);
+
+                RecommendRequest recommendRequest = new RecommendRequest(userID, program, ratingbar, responseListener);
+                RequestQueue queue2 = Volley.newRequestQueue(getActivity());
+                queue2.add(recommendRequest);
             }
         });
 
