@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HanB">
         <activity android:name=".LoginActivity" />
-        <activity android:name=".FindActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity"
             android:windowSoftInputMode="adjustNothing" />

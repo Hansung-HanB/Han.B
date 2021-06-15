@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="HAN.B"
-        android:textColor="#3498DB"
+        android:textColor="#024059"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="마이페이지"
-        android:textColor="#5D5D5D"
+        android:textColor="#025E73"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,45 +34,16 @@
         app:layout_constraintTop_toBottomOf="@+id/logo_mypage" />
 
     <Button
-        android:id="@+id/changeNickButton_mypage"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="70dp"
-        android:text="닉네임 변경"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="#3498DB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mypage_mypage" />
-
-    <Button
-        android:id="@+id/changePWButton_mypage"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:text="비밀번호 변경"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:backgroundTint="#3498DB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeNickButton_mypage" />
-
-    <Button
         android:id="@+id/signOutButton_mypage"
         android:layout_width="108dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
-        android:backgroundTint="#3498DB"
+        android:backgroundTint="#5BA9D9"
         android:text="로그아웃"
-        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePWButton_mypage" />
+        app:layout_constraintTop_toBottomOf="@+id/mypage_mypage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

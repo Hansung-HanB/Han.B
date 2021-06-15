@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText et_id, et_pass;
     private Button btn_login;
     private TextView btn_register;
-    private TextView btn_find;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +30,11 @@ public class LoginActivity extends AppCompatActivity {
 
         et_id = findViewById(R.id.userNameText_login);
         et_pass = findViewById(R.id.pwText_login);
-        btn_find = findViewById(R.id.find_login);
         btn_login = findViewById(R.id.signInButton_login);
         btn_register = findViewById(R.id.signUp_login);
 
         btn_register.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-            startActivity(intent);
-        });
-
-        btn_find.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), FindActivity.class);
             startActivity(intent);
         });
 

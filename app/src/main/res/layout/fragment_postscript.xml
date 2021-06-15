@@ -12,44 +12,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="HAN.B"
-        android:textColor="#3498DB"
+        android:textColor="#024059"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:id="@+id/rearch_postscript"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/edittext_rounded_corner_rectangle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_postscript" />
-
     <Button
         android:id="@+id/writeButton_postscript"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="312dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:foreground="@drawable/edit"
         android:background="@drawable/edit"
-        android:foregroundTint="#3498DB"
+        android:foreground="@drawable/edit"
+        android:foregroundTint="#025E73"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_postscript" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_layout"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="490dp"
+        android:layout_marginTop="19dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintTop_toBottomOf="@+id/rearch_postscript"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeButton_postscript">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_main_list"
@@ -64,8 +57,6 @@
             app:layout_constraintTop_toBottomOf="@+id/rearch_postscript"
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="0dp" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

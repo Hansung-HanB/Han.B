@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
         android:text="HAN.B"
-        android:textColor="#3498DB"
+        android:textColor="#024059"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#3498DB"
+        android:backgroundTint="#5BA0D9"
         android:text="시작하기"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -66,26 +66,11 @@
         android:id="@+id/signUp_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:text="회원가입"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/find_login"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInButton_login" />
-
-    <TextView
-        android:id="@+id/find_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:text="PW 찾기"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/signUp_login"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInButton_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

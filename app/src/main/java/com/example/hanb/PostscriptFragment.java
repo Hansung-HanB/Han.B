@@ -73,7 +73,7 @@ public class PostscriptFragment extends Fragment {
         //후기 쓰기 버튼
         writeButton_postscript = rootView.findViewById(R.id.writeButton_postscript);
         writeButton_postscript.setOnClickListener(v -> {
-            writeButton_postscript.setForegroundTintList(ColorStateList.valueOf(Color.parseColor("#5D5D5D")));
+            writeButton_postscript.setForegroundTintList(ColorStateList.valueOf(Color.parseColor("#A7D5F2")));
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
             WritePostscriptFragment writePostscriptFragment = new WritePostscriptFragment();
             transaction.replace(R.id.main_frame, writePostscriptFragment);

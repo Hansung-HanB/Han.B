@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="HAN.B"
-        android:textColor="#3498DB"
+        android:textColor="#024059"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_program"
         tools:layout_editor_absoluteX="-5dp">
-
     </WebView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

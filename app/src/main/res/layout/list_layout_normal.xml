@@ -23,9 +23,9 @@
             android:numStars="5"
             android:rating="0"
             android:stepSize="0.5"
-            android:progressTint="@color/yellow"
-            android:progressBackgroundTint="@color/yellow"
-            android:secondaryProgressTint="@color/yellow"
+            android:progressTint="#025E73"
+            android:progressBackgroundTint="#025E73"
+            android:secondaryProgressTint="#025E73"
             />
 
         <TextView

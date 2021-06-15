@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
         android:text="HAN.B"
-        android:textColor="#3498DB"
+        android:textColor="#024059"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

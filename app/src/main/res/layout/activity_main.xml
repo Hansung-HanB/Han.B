@@ -10,14 +10,14 @@
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="#F2F2F2"
         app:itemIconTint="@drawable/bottom_menu"
         app:itemTextColor="@drawable/bottom_menu"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu"
-        app:labelVisibilityMode="unlabeled" />
+        app:labelVisibilityMode="unlabeled"/>
 
     <FrameLayout
         android:id="@+id/main_frame"
