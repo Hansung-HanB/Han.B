@@ -4,7 +4,7 @@
     <item
         android:id="@+id/home_menu"
         android:enabled="true"
-        android:icon="@drawable/home"
+        android:icon="@drawable/like"
         android:title="홈" />
 
     <item
@@ -16,7 +16,7 @@
     <item
         android:id="@+id/postscript_menu"
         android:enabled="true"
-        android:icon="@drawable/like"
+        android:icon="@drawable/review"
         android:title="비교과 후기" />
 
 
