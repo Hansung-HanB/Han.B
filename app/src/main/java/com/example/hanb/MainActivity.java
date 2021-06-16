@@ -1,14 +1,8 @@
 package com.example.hanb;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
-import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -19,8 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
+
         //처음화면
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.main_frame, new HomeFragment()).commit();
 
         //바텀 네비게이션뷰 안의 아이템 설정
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {

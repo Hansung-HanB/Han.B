@@ -39,7 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="5dp"
-        android:background="#A8A8A8" />
+        android:background="#A8A8A8"
+        android:layout_marginTop="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +68,6 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
-
     </LinearLayout>
 
     <View
@@ -103,7 +103,6 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
-
     </LinearLayout>
 
     <View
@@ -139,7 +138,6 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
-
     </LinearLayout>
 
     <View
@@ -175,7 +173,6 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
-
     </LinearLayout>
 
     <View
@@ -211,7 +208,6 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
-
     </LinearLayout>
 
     <View
@@ -225,12 +221,11 @@
         android:id="@+id/signOutBtn_mypage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="15dp"
         android:clickable="true"
         android:text="로그아웃"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:textColor="@color/black"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
 
 </LinearLayout>

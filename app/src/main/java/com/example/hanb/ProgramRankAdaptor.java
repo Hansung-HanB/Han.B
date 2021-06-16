@@ -1,16 +1,11 @@
 package com.example.hanb;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 
@@ -33,9 +28,6 @@ public class ProgramRankAdaptor extends RecyclerView.Adapter<ProgramRankAdaptor.
     @Override
     public void onBindViewHolder(ProgramRankAdaptor.ViewHolder holder, int position) {
         ProgramRankItem rankProgram = rankProgramData.get(position);
-//        if(position%2 == 0) {
-//            holder.rankProgram.setBackgroundColor(Color.parseColor("#5BA9D9"));
-//        }
         holder.rankProgram.setText(rankProgram.getRankProgram());
         holder.rankGrade.setText(rankProgram.getRankProgramGrade());
     }
@@ -45,23 +37,13 @@ public class ProgramRankAdaptor extends RecyclerView.Adapter<ProgramRankAdaptor.
         return rankProgramData.size();
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-       TextView rankProgram;
-       TextView rankGrade;
-
-       //String program;
-       //Float ratingbar;
+       TextView rankProgram, rankGrade;
 
        ViewHolder(View item) {
            super(item);
-
            rankProgram = itemView.findViewById(R.id.rank_program_list);
            rankGrade = itemView.findViewById(R.id.rank_program_grade_list);
-
-           //rankProgram.setText(program);
-           //rankGrade.setText(ratingbar.toString());
-
        }
     }
 }

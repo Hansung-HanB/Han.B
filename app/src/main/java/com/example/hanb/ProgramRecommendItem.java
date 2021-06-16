@@ -1,8 +1,7 @@
 package com.example.hanb;
 
 public class ProgramRecommendItem {
-    public String recommendProgram;
-    public String programGrade;
+    public String recommendProgram, programGrade;
 
     public void setRecommendProgram(String program) {
         recommendProgram = program;

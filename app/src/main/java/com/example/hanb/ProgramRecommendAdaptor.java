@@ -39,12 +39,10 @@ public class ProgramRecommendAdaptor extends RecyclerView.Adapter<ProgramRecomme
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-       TextView program;
-       TextView grade;
+       TextView program, grade;
 
        ViewHolder(View itemView) {
            super(itemView);
-
            program = itemView.findViewById(R.id.recommend_program_list);
            grade = itemView.findViewById(R.id.program_grade_list);
        }

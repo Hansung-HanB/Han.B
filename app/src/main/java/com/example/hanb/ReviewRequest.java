@@ -13,9 +13,7 @@ public class ReviewRequest extends StringRequest {
 
     public ReviewRequest(String program, String postscript, float ratingbar, String userID, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
-
         map = new HashMap<>();
-
         map.put("program", program);
         map.put("postscript", postscript);
         map.put("ratingbar",ratingbar+"");
@@ -23,7 +21,7 @@ public class ReviewRequest extends StringRequest {
     }
 
     @Override
-    protected Map<String, String> getParams() throws AuthFailureError {
+    protected Map<String, String> getParams() {
         return map;
     }
 }

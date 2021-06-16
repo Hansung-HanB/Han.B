@@ -7,12 +7,11 @@ import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Holder> {
     private Context context;
-    private List<PostscriptData> list = new ArrayList<>();
+    private List<PostscriptData> list;
 
     public PostscriptAdapter(Context context, List<PostscriptData> list) {
         this.context = context;
@@ -41,7 +40,7 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
     @Override
     public int getItemCount() {
-        return list.size();// RecyclerView의 size return
+        return list.size(); // RecyclerView의 size return
     }
 
     // ViewHolder는 하나의 View를 보존하는 역할을 한다
@@ -52,9 +51,9 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
 
         public Holder(View view){
             super(view);
-            program = (TextView) view.findViewById(R.id.program_postscript_item);
-            postscript = (TextView) view.findViewById(R.id.postscript_postscript_item);
-            ratingBar = (RatingBar) view.findViewById(R.id.ratingBar_postscript_item);
+            program = view.findViewById(R.id.program_postscript_item);
+            postscript = view.findViewById(R.id.postscript_postscript_item);
+            ratingBar = view.findViewById(R.id.ratingBar_postscript_item);
         }
     }
 }

@@ -33,15 +33,9 @@ public class WritePostscriptFragment extends Fragment {
             "내외국인 재학생 연합봉사단", "종합심리검사", "단기영어연수", "한성토익강좌", "공무원시험특강", "복학생워크숍", "트랙제 적응 향상 기초학습역량 프로그램", "학습전략검사", "한성대학교 캠퍼스타운 사업단 서포터즈", "상상력교양대학 서포터즈",
             "집단상담프로그램", "한성점프업", "영자신문사", "한성대신문사", "글로벌튜터링", "HS 한성인의 도전 이야기"};
 
-    //ViewGroup viewGroup;
-
-    //public String userID;
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-
-        //viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_write_postscript,container,false);
-        //userID = ((LoginActivity) getActivity()).findViewById(R.id.userNameText_login);
         view = inflater.inflate(R.layout.fragment_write_postscript, container, false);
 
         //Bundle 받기
@@ -66,8 +60,6 @@ public class WritePostscriptFragment extends Fragment {
                 String postscript = psText_write_postscript.getText().toString();
                 float ratingbar = ratingBar_write_postscript.getRating();
 
-                //String userID = null;
-
                 Bundle extra = getArguments();
                 String userID = null;
                 if(extra != null){
@@ -82,12 +74,10 @@ public class WritePostscriptFragment extends Fragment {
                             boolean success = jsonObject.getBoolean("success");
                             if (success) { // 후기등록에 성공한 경우
                                 Toast.makeText(getActivity(), "후기 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                                //Intent intent = new Intent(getTargetFragment().getContext(), WritePostscriptFragment.class);
                                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction(); //프래그먼트 전환
                                 PostscriptFragment postscriptFragment = new PostscriptFragment();
                                 transaction.replace(R.id.main_frame, postscriptFragment);//후기 등록에 성공하면 후기 게시판으로 이동해 작성한 후기 확인
                                 transaction.commit();
-                                //startActivity(intent);
                             } else { // 후기등록에 실패한 경우
                                 Toast.makeText(getActivity(), "후기 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                                 return;

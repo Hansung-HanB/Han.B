@@ -1,11 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:background="@drawable/postscript_layout_border">
-    <LinearLayout
 
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="7"
@@ -25,8 +24,7 @@
             android:stepSize="0.5"
             android:progressTint="#025E73"
             android:progressBackgroundTint="#025E73"
-            android:secondaryProgressTint="#025E73"
-            />
+            android:secondaryProgressTint="#025E73" />
 
         <TextView
             android:paddingTop="5dp"
@@ -41,10 +39,7 @@
             android:id="@+id/postscript_postscript_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            />
-
-        <!-- style="@style/Widget.AppCompat.RatingBar.Indicator" 레이팅 바 크기 설정-->
-
+            android:textSize="15sp" />
     </LinearLayout>
+
 </LinearLayout>
