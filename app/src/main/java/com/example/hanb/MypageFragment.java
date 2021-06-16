@@ -19,10 +19,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +38,12 @@ public class MypageFragment extends Fragment {
     private View view;
     private TextView userName_field, userID_field, userMajor_field, userPoint_field, remainPoint_field;
     private TextView signOutBtn_mypage;
+    static String userID_comp;
+    static String userName;
+    static String userMajor;
+    static String userPoint;
+    static String remainPoint;
+    static int remainPoint_int;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,36 +59,44 @@ public class MypageFragment extends Fragment {
         signOutBtn_mypage = view.findViewById(R.id.signOutBtn_mypage);
 
         userID_field.setText(userID);
-        String serverURL = String.format("http://15.164.102.181/mypage.php?ID=%s", userID);
+        //String serverURL = String.format("http://15.164.102.181/mypage.php?ID=%s", userID);
+        String serverURL = "http://15.164.102.181//mypage_test.php";
 
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, serverURL, new Response.Listener<String>() {
+        JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.POST, serverURL, null, new Response.Listener<JSONArray>() {
+            //volley 라이브러리의 GET방식은 버튼 누를때마다 새로운 갱신 데이터를 불러들이지 않음. 그래서 POST 방식 사용
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONArray response) {
+                //Toast.makeText(MyApplication.ApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                //파라미터로 응답받은 결과 JsonArray를 분석
+                //mData.clear();
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("student");
-                    JSONObject data = jsonArray.getJSONObject(0);
-
-                    String userName = data.getString("userName");
-                    String userMajor = data.getString("userMajor");
-                    int userPoint = data.getInt("userPoint");
-
-                    userName_field.setText(userName);
-                    userMajor_field.setText(userMajor);
-                    userPoint_field.setText(userPoint);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                    for(int i=0;i<response.length();i++){
+                        //for(int i=0;i<numContacts;i++){
+                        JSONObject jsonObject= response.getJSONObject(i);
+                        userID_comp=jsonObject.getString("userID");
+                        userName=jsonObject.getString("userName");
+                        userMajor=jsonObject.getString("userMajor");
+                        userPoint=jsonObject.getString("userPoint");
+                        remainPoint_int=800-Integer.parseInt(jsonObject.getString("userPoint"));
+                        remainPoint=Integer.toString(remainPoint_int);
+                        //Toast.makeText(getActivity(), userID_comp+" "+userName+" "+userMajor+" "+userPoint, Toast.LENGTH_SHORT).show();
+                        if(userID_comp.equals(userID)){
+                            userMajor_field.setText(userMajor);
+                            userName_field.setText(userName);
+                            userPoint_field.setText(userPoint);
+                            remainPoint_field.setText(remainPoint);
+                            //Toast.makeText(getActivity(), userID_comp+" "+userName+" "+userMajor+" "+userPoint, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                } catch (JSONException e) {e.printStackTrace();}
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "Volley Login Error " + error.toString(), Toast.LENGTH_SHORT).show();
-            }
+        }, error -> {
+            //Toast.makeText(MyApplication.ApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
         });
 
+        RequestQueue requestQueue= Volley.newRequestQueue(MyApplication.ApplicationContext());
+        //요청큐에 요청 객체 생성
+        requestQueue.add(jsonArrayRequest);
 
 
 

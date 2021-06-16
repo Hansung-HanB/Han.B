@@ -93,8 +93,8 @@ public class HomeFragment extends Fragment {
                         rank_program=jsonObject.getString("program");
                         rank_average=jsonObject.getString("avg(ratingbar)");
                         addItem2(rank_program, rank_average);
-                        // PostscriptData 리스트형태로 저장
                         //mData.add( new ProgramRankItem()); //위에 것 이 가장 최근 것
+
                     }
                 } catch (JSONException e) {e.printStackTrace();}
             }
@@ -102,6 +102,9 @@ public class HomeFragment extends Fragment {
             //Toast.makeText(MyApplication.ApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
         });
 
+        RequestQueue requestQueue= Volley.newRequestQueue(MyApplication.ApplicationContext());
+        //요청큐에 요청 객체 생성
+        requestQueue.add(jsonArrayRequest);
 
         for(int i=0; i<=10; i++) {
             addItem("test", "5");
@@ -111,9 +114,7 @@ public class HomeFragment extends Fragment {
           //addItem2(rank_program, Integer.toString(i + 1));
       // }
 
-        RequestQueue requestQueue= Volley.newRequestQueue(MyApplication.ApplicationContext());
-        //요청큐에 요청 객체 생성
-        requestQueue.add(jsonArrayRequest);
+
 
         mAdapter.notifyDataSetChanged();
         adpater.notifyDataSetChanged();
