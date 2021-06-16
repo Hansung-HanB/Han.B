@@ -75,6 +75,7 @@ public class HomeFragment extends Fragment {
         mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+
         String serverUrl="http://15.164.102.181//rank.php";
 
         //결과를 JsonArray 받으므로 StringRequest가 아니라 JsonArrayRequest를 사용
@@ -85,7 +86,7 @@ public class HomeFragment extends Fragment {
             public void onResponse(JSONArray response) {
                 //Toast.makeText(MyApplication.ApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                 //파라미터로 응답받은 결과 JsonArray를 분석
-                //mData.clear();
+                mData.clear();
                 try {
                     for(int i=0;i<10;i++){
                         //for(int i=0;i<numContacts;i++){
@@ -94,7 +95,6 @@ public class HomeFragment extends Fragment {
                         rank_average=jsonObject.getString("avg(ratingbar)");
                         addItem2(rank_program, rank_average);
                         //mData.add( new ProgramRankItem()); //위에 것 이 가장 최근 것
-
                     }
                 } catch (JSONException e) {e.printStackTrace();}
             }
@@ -106,18 +106,20 @@ public class HomeFragment extends Fragment {
         //요청큐에 요청 객체 생성
         requestQueue.add(jsonArrayRequest);
 
+        mAdapter.notifyDataSetChanged();
+        adpater.notifyDataSetChanged();
+
         for(int i=0; i<=10; i++) {
             addItem("test", "5");
         }
 
         //for(int i=1; i<=10; i++) {
-          //addItem2(rank_program, Integer.toString(i + 1));
-      // }
+       //   addItem2(rank_program, Integer.toString(i + 1));
+       // }
 
 
 
-        mAdapter.notifyDataSetChanged();
-        adpater.notifyDataSetChanged();
+
 
         return view;
 
