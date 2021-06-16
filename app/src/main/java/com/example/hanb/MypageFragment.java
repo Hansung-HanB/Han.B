@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -29,6 +30,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class MypageFragment extends Fragment {
     private View view;
@@ -48,51 +50,39 @@ public class MypageFragment extends Fragment {
         remainPoint_field = view.findViewById(R.id.remainPoint_field);
         signOutBtn_mypage = view.findViewById(R.id.signOutBtn_mypage);
 
-        String serverURL = "http://15.164.102.181/mypage.php?ID=" + userID;
+        userID_field.setText(userID);
+        String serverURL = String.format("http://15.164.102.181/mypage.php?ID=%s", userID);
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, serverURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    String success = jsonObject.getString("success");
-                    JSONArray jsonArray = jsonObject.getJSONArray("read");
+                    JSONArray jsonArray = jsonObject.getJSONArray("student");
+                    JSONObject data = jsonArray.getJSONObject(0);
 
-                    if (success.equals("1")) {
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject object = jsonArray.getJSONObject(i);
+                    String userName = data.getString("userName");
+                    String userMajor = data.getString("userMajor");
+                    int userPoint = data.getInt("userPoint");
 
-                            String userName = object.getString("userName");
-                            String userMajor = object.getString("userObject");
-                            String userID = object.getString("userID");
-                            int userPoint = object.getInt("userPoint");
-
-                            userName_field.setText(userName);
-                            userID_field.setText(userID);
-                            userMajor_field.setText(userMajor);
-                            userPoint_field.setText(userPoint);
-                            if (userPoint <= 800 && userPoint >= 0) {
-                                int r = 800 - userPoint;
-                                remainPoint_field.setText(r);
-                            } else if (userPoint > 800) {
-                                int r = 0;
-                                remainPoint_field.setText("0");
-                            } else remainPoint_field.setText(' ');
-                        }
-                    }
+                    userName_field.setText(userName);
+                    userMajor_field.setText(userMajor);
+                    userPoint_field.setText(userPoint);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getActivity(), "Volley Login Error " + error.toString(), Toast.LENGTH_SHORT).show();
-
             }
         });
+
+
+
 
         // 마이페이지에서 로그아웃 클릭시 로그인 화면으로 이동
         signOutBtn_mypage.setOnClickListener(v -> {
