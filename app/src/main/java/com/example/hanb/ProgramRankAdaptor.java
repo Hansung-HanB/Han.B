@@ -1,6 +1,7 @@
 package com.example.hanb;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,9 @@ public class ProgramRankAdaptor extends RecyclerView.Adapter<ProgramRankAdaptor.
     @Override
     public void onBindViewHolder(ProgramRankAdaptor.ViewHolder holder, int position) {
         ProgramRankItem rankProgram = rankProgramData.get(position);
+//        if(position%2 == 0) {
+//            holder.rankProgram.setBackgroundColor(Color.parseColor("#5BA9D9"));
+//        }
         holder.rankProgram.setText(rankProgram.getRankProgram());
         holder.rankGrade.setText(rankProgram.getRankProgramGrade());
     }

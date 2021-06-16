@@ -41,7 +41,7 @@ public class PostscriptAdapter extends RecyclerView.Adapter<PostscriptAdapter.Ho
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
     @Override
     public int getItemCount() {
-        return list.size(); // RecyclerView의 size return
+        return list.size();// RecyclerView의 size return
     }
 
     // ViewHolder는 하나의 View를 보존하는 역할을 한다

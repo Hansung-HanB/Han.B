@@ -45,36 +45,29 @@ public class PostscriptData extends AppCompatActivity {
         //String postscript ="";
         //float ratingbar = 0;
 
-        JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.POST, serverUrl, null, new Response.Listener<JSONArray>() {
-            //volley 라이브러리의 GET방식은 버튼 누를때마다 새로운 갱신 데이터를 불러들이지 않음. 그래서 POST 방식 사용
-            @Override
-            public void onResponse(JSONArray response) {
-                //Toast.makeText(MyApplication.ApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+        //volley 라이브러리의 GET방식은 버튼 누를때마다 새로운 갱신 데이터를 불러들이지 않음. 그래서 POST 방식 사용
+        JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.POST, serverUrl, null, response -> {
+            //Toast.makeText(MyApplication.ApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+            //파라미터로 응답받은 결과 JsonArray를 분석
+            post.clear();
+            try {
+                num=response.length();
+                for(int i=0;i<response.length();i++){
+                    //for(int i=0;i<numContacts;i++){
+                    JSONObject jsonObject= response.getJSONObject(i);
+                    program_2=jsonObject.getString("program");
+                    postscript_2=jsonObject.getString("postscript");
+                    postscript_2 = postscript_2.replace("\n ", "");
+                    postscript_2 = postscript_2.replace("\n", "");
+                    ratingbar_2= Float.parseFloat(jsonObject.getString("ratingbar")); //no가 문자열이라서 바꿔야함.
+                    String UserID=jsonObject.getString("userID");
 
-                //파라미터로 응답받은 결과 JsonArray를 분석
-                post.clear();
-                try {
-                    num=response.length();
-                    for(int i=0;i<response.length();i++){
-                        //for(int i=0;i<numContacts;i++){
-                        JSONObject jsonObject= response.getJSONObject(i);
-                        program_2=jsonObject.getString("program");
-                        postscript_2=jsonObject.getString("postscript");
-                        postscript_2 = postscript_2.replace("\n ", "");
-                        postscript_2 = postscript_2.replace("\n", "");
-                        ratingbar_2= Float.parseFloat(jsonObject.getString("ratingbar")); //no가 문자열이라서 바꿔야함.
-                        String UserID=jsonObject.getString("userID");
-
-                        // PostscriptData 리스트형태로 저장
-                        post.add(0, new PostscriptData(program_2,postscript_2,ratingbar_2)); //위에 것 이 가장 최근 것
-                    }
-                } catch (JSONException e) {e.printStackTrace();}
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(MyApplication.ApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
-            }
+                    // PostscriptData 리스트형태로 저장
+                    post.add(0, new PostscriptData(program_2,postscript_2,ratingbar_2)); //위에 것 이 가장 최근 것
+                }
+            } catch (JSONException e) {e.printStackTrace();}
+        }, error -> {
+            //Toast.makeText(MyApplication.ApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
         });
 
         /*

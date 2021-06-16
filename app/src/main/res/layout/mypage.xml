@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MypageFragment">
+
     <TextView
         android:id="@+id/logo_mypage"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:text="HAN.B"
-        android:textColor="#3498DB"
+        android:textColor="#024059"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -19,16 +22,16 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:text="마이페이지"
-        android:textColor="#5D5D5D"
+        android:textColor="#025E73"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/sangsang"
         android:layout_gravity="center"/>
 
@@ -52,6 +55,7 @@
             android:gravity="center"
             android:text="이름"
             android:textSize="20dp"
+            android:textColor="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
 
@@ -87,6 +91,7 @@
             android:gravity="center"
             android:text="학번"
             android:textSize="20dp"
+            android:textColor="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
 
@@ -122,6 +127,7 @@
             android:gravity="center"
             android:text="소속"
             android:textSize="20dp"
+            android:textColor="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
 
@@ -157,6 +163,7 @@
             android:gravity="center"
             android:text="누적 포인트"
             android:textSize="20dp"
+            android:textColor="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
 
@@ -192,6 +199,7 @@
             android:gravity="center"
             android:text="잔여 포인트"
             android:textSize="20dp"
+            android:textColor="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textIsSelectable="true" />
 
@@ -218,10 +226,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:onClick="onTextViewClicked"
         android:clickable="true"
         android:text="로그아웃"
         android:textSize="15dp"
+        android:textColor="@color/black"
         android:layout_gravity="center"
         />
 

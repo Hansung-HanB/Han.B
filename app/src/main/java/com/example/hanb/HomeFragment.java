@@ -75,8 +75,6 @@ public class HomeFragment extends Fragment {
         mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-
         String serverUrl="http://15.164.102.181//rank.php";
 
         //결과를 JsonArray 받으므로 StringRequest가 아니라 JsonArrayRequest를 사용
@@ -100,11 +98,8 @@ public class HomeFragment extends Fragment {
                     }
                 } catch (JSONException e) {e.printStackTrace();}
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(MyApplication.ApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
-            }
+        }, error -> {
+            //Toast.makeText(MyApplication.ApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
         });
 
 

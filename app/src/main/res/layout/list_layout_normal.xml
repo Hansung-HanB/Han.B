@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:background="@drawable/postscript_layout_border">
-
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="7"
@@ -47,5 +47,4 @@
         <!-- style="@style/Widget.AppCompat.RatingBar.Indicator" 레이팅 바 크기 설정-->
 
     </LinearLayout>
-
 </LinearLayout>

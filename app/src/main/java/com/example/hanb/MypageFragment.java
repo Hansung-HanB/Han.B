@@ -35,9 +35,9 @@ public class MypageFragment extends Fragment {
     private TextView userName_field, userID_field, userMajor_field, userPoint_field, remainPoint_field;
     private TextView signOutBtn_mypage;
 
-     @Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        view = inflater.inflate(R.layout.mypage, container, false);
         SharedPreferences prefs = getActivity().getSharedPreferences("id", Context.MODE_PRIVATE);
         String userID = prefs.getString("inputID", "");
 
@@ -48,19 +48,18 @@ public class MypageFragment extends Fragment {
         remainPoint_field = view.findViewById(R.id.remainPoint_field);
         signOutBtn_mypage = view.findViewById(R.id.signOutBtn_mypage);
 
-
-        String serverURL = "http://15.164.102.181/mypage.php?ID="+userID;
+        String serverURL = "http://15.164.102.181/mypage.php?ID=" + userID;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, serverURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                try{
+                try {
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("success");
                     JSONArray jsonArray = jsonObject.getJSONArray("read");
 
-                    if(success.equals("1")){
-                        for(int i = 0; i < jsonArray.length(); i++){
+                    if (success.equals("1")) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject object = jsonArray.getJSONObject(i);
 
                             String userName = object.getString("userName");
@@ -72,10 +71,10 @@ public class MypageFragment extends Fragment {
                             userID_field.setText(userID);
                             userMajor_field.setText(userMajor);
                             userPoint_field.setText(userPoint);
-                            if(userPoint<=800 && userPoint >= 0){
-                                int r = 800-userPoint;
+                            if (userPoint <= 800 && userPoint >= 0) {
+                                int r = 800 - userPoint;
                                 remainPoint_field.setText(r);
-                            } else if (userPoint>800){
+                            } else if (userPoint > 800) {
                                 int r = 0;
                                 remainPoint_field.setText("0");
                             } else remainPoint_field.setText(' ');
@@ -90,13 +89,12 @@ public class MypageFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(),"Volley Login Error " +error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Volley Login Error " + error.toString(), Toast.LENGTH_SHORT).show();
 
             }
         });
 
-
-         // 마이페이지에서 로그아웃 클릭시 로그인 화면으로 이동
+        // 마이페이지에서 로그아웃 클릭시 로그인 화면으로 이동
         signOutBtn_mypage.setOnClickListener(v -> {
             Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getActivity(), LoginActivity.class);

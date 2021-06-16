@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -27,7 +28,6 @@ public class PostscriptFragment extends Fragment {
     @SuppressLint("ResourceType")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_postscript, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_main_list); // 개별 행 모양 불러오기
         //list = PostscriptData.createContactsList(100); // 보여줄 행 개수
@@ -38,7 +38,7 @@ public class PostscriptFragment extends Fragment {
         recyclerView.setAdapter(adapter); //리사이클러뷰 어댑터 설정
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         adapter.notifyDataSetChanged();
-        
+
         // 목록 마지막 확인
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -54,20 +54,12 @@ public class PostscriptFragment extends Fragment {
 
         // 목록 새로고침 기능
         SwipeRefreshLayout mSwipeRefreshLayout = rootView.findViewById(R.id.swipe_layout);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.detach(PostscriptFragment.this).attach(PostscriptFragment.this);
-                ft.commit();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mSwipeRefreshLayout.setRefreshing(false);
-                    }
-                }, 500);
-            }
+        mSwipeRefreshLayout.setOnRefreshListener(() -> {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.detach(PostscriptFragment.this).attach(PostscriptFragment.this);
+            ft.commit();
+            final Handler handler = new Handler();
+            handler.postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 500);
         });
 
         //후기 쓰기 버튼
@@ -79,6 +71,7 @@ public class PostscriptFragment extends Fragment {
             transaction.replace(R.id.main_frame, writePostscriptFragment);
             transaction.commit();
             });
+
         return rootView;
     }
 }
