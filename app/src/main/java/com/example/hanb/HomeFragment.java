@@ -84,9 +84,19 @@ public class HomeFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
         adpater.notifyDataSetChanged();
 
-        for(int i=0; i<=10; i++) {
-            addItem("test", "5");
-        }
+
+        addItem("한성토익강좌", "5");
+        addItem("내외국인 재학생 연합봉사단", "4.3");
+        addItem("영자신문사", "4.2");
+        addItem("한성영어캠프", "4");
+        addItem("또래상담", "3.8");
+        addItem("학습능력향상 튜터링", "3.5");
+        addItem("open activity", "3.2");
+        addItem("집단상담프로그램", "3");
+        addItem("한성대신문사", "2.7");
+        addItem("총장님과 식사", "2.5");
+
+
 
         return view;
     }
