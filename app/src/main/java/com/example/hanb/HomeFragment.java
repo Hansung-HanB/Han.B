@@ -20,12 +20,12 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
     private View view;
     static ArrayList<ProgramRankItem> mData = new ArrayList<>();
-    static String rank_program, rank_average;
+    static String rank_program, rank_average, reco_program, reco_rating;
     RecyclerView mRecyclerView_recommend = null;
     RecyclerView mRecyclerView_rank = null;
     ProgramRecommendAdaptor mAdapter = null;
     ProgramRankAdaptor adpater = null;
-    ArrayList<ProgramRecommendItem> mList = new ArrayList<>();
+    static ArrayList<ProgramRecommendItem> mList = new ArrayList<>();
     Handler handler;
 
     @Override
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    public void addItem(String program, String grade) {
+    static public void addItem(String program, String grade) {
         ProgramRecommendItem item = new ProgramRecommendItem();
         item.setRecommendProgram(program);
         item.setProgramGrade(grade);
@@ -96,19 +96,44 @@ public class HomeFragment extends Fragment {
         //요청큐에 요청 객체 생성
         requestQueue.add(jsonArrayRequest);
 
+
+        String serverUrl2="http://15.164.102.181//recommend_test_2.php";
+
+        //결과를 JsonArray 받으므로 StringRequest가 아니라 JsonArrayRequest를 사용
+        //volley 라이브러리의 GET방식은 버튼 누를때마다 새로운 갱신 데이터를 불러들이지 않음. 그래서 POST 방식 사용
+        JsonArrayRequest jsonArrayRequest2= new JsonArrayRequest(Request.Method.POST, serverUrl2, null, response2 -> {
+            //파라미터로 응답받은 결과 JsonArray를 분석
+            double tmp=0.0;
+            mList.clear();
+            try {
+                for(int i=0;i<10;i++){
+                    JSONObject jsonObject2= response2.getJSONObject(i);
+                    reco_program=jsonObject2.getString("program");
+                    reco_rating=jsonObject2.getString("ratingbar");
+                    tmp=Math.round(Float.parseFloat(reco_rating)*100)/100.0;
+                    addItem(reco_program, Double.toString(tmp));
+                }
+            } catch (JSONException e) {e.printStackTrace();}
+        }, error -> {
+        });
+
+        RequestQueue requestQueue2= Volley.newRequestQueue(MyApplication.ApplicationContext());
+        //요청큐에 요청 객체 생성
+        requestQueue2.add(jsonArrayRequest2);
+
         mAdapter.notifyDataSetChanged();
         adpater.notifyDataSetChanged();
 
-        addItem("한성토익강좌", "5");
-        addItem("내외국인 재학생 연합봉사단", "4.3");
-        addItem("영자신문사", "4.2");
-        addItem("한성영어캠프", "4");
-        addItem("또래상담", "3.8");
-        addItem("학습능력향상 튜터링", "3.5");
-        addItem("open activity", "3.2");
-        addItem("집단상담프로그램", "3");
-        addItem("한성대신문사", "2.7");
-        addItem("총장님과 식사", "2.5");
+        //addItem("한성토익강좌", "5");
+        //addItem("내외국인 재학생 연합봉사단", "4.3");
+        //addItem("영자신문사", "4.2");
+        //addItem("한성영어캠프", "4");
+        //addItem("또래상담", "3.8");
+        //addItem("학습능력향상 튜터링", "3.5");
+        //addItem("open activity", "3.2");
+        //addItem("집단상담프로그램", "3");
+        //addItem("한성대신문사", "2.7");
+        //addItem("총장님과 식사", "2.5");
 
         return view;
     }
