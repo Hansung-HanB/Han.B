@@ -21,7 +21,7 @@ public class MypageFragment extends Fragment {
     private View view;
     private TextView userName_field, userID_field, userMajor_field, userPoint_field, remainPoint_field, signOutBtn_mypage;
     static String userID_comp, userName, userMajor, userPoint, remainPoint;
-    static int remainPoint_int;
+    static int userPoint_int, remainPoint_int;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,14 +50,17 @@ public class MypageFragment extends Fragment {
                     userName=jsonObject.getString("userName");
                     userMajor=jsonObject.getString("userMajor");
                     userPoint=jsonObject.getString("userPoint");
+                    userPoint_int=Integer.parseInt(jsonObject.getString("userPoint"));
                     remainPoint_int=800-Integer.parseInt(jsonObject.getString("userPoint"));
                     remainPoint=Integer.toString(remainPoint_int);
                     if(userID_comp.equals(userID)){
                         userMajor_field.setText(userMajor);
                         userName_field.setText(userName);
                         userPoint_field.setText(userPoint);
-                        remainPoint_field.setText(remainPoint);
-                    }
+                        if(userPoint_int>=0 && userPoint_int<=800){
+                            remainPoint_field.setText(remainPoint);
+                        } else remainPoint_field.setText("0");
+                     }
                 }
             } catch (JSONException e) {e.printStackTrace();}
         }, error -> {
