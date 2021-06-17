@@ -51,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
             String userPass = et_pass.getText().toString();
             String userName = et_name.getText().toString();
             String userMajor = sp_major.getSelectedItem().toString();
+            int userPoint = 0;
 
             Response.Listener<String> responseListener = response -> {
                 try {
@@ -70,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
             };
 
             // 서버로 Volley를 이용해서 요청을 함.
-            RegisterRequest registerRequest = new RegisterRequest(userName, userMajor, userID, userPass, responseListener);
+            RegisterRequest registerRequest = new RegisterRequest(userName, userMajor, userID, userPass, userPoint, responseListener);
             RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
             queue.add(registerRequest);
         });
