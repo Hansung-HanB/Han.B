@@ -32,14 +32,18 @@ public class PostscriptFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerview_main_list); // 개별 행 모양 불러오기
         list = PostscriptData.createContactsList(); // 보여줄 행 개수
         recyclerView.setHasFixedSize(true);
+        adapter = new PostscriptAdapter(getActivity(),list);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        adapter.notifyDataSetChanged();
 
         handler = new Handler();
         handler.postDelayed(() -> {
-            recyclerView = rootView.findViewById(R.id.recyclerview_main_list); // 개별 행 모양 불러오기
-            list = PostscriptData.createContactsList(); // 보여줄 행 개수
-            recyclerView.setHasFixedSize(true);
-            adapter = new PostscriptAdapter(getActivity(),list);
-            recyclerView.setAdapter(adapter);
+//            list = PostscriptData.createContactsList(); // 보여줄 행 개수
+//            recyclerView.setHasFixedSize(true);
+//            adapter = new PostscriptAdapter(getActivity(),list);
+//            recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
         }, 110);

@@ -59,13 +59,16 @@ public class HomeFragment extends Fragment {
         adpater = new ProgramRankAdaptor(mData);
         mRecyclerView_rank.setAdapter(adpater);
 
+        mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         handler = new Handler();
         handler.postDelayed(() -> {
-            mAdapter = new ProgramRecommendAdaptor(mList);
-            mRecyclerView_recommend.setAdapter(mAdapter);
-
-            adpater = new ProgramRankAdaptor(mData);
-            mRecyclerView_rank.setAdapter(adpater);
+//            mAdapter = new ProgramRecommendAdaptor(mList);
+//            mRecyclerView_recommend.setAdapter(mAdapter);
+//
+//            adpater = new ProgramRankAdaptor(mData);
+//            mRecyclerView_rank.setAdapter(adpater);
 
             mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
             mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
