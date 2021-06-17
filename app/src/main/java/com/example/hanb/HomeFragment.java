@@ -64,15 +64,15 @@ public class HomeFragment extends Fragment {
 
         handler = new Handler();
         handler.postDelayed(() -> {
-//            mAdapter = new ProgramRecommendAdaptor(mList);
-//            mRecyclerView_recommend.setAdapter(mAdapter);
-//
-//            adpater = new ProgramRankAdaptor(mData);
-//            mRecyclerView_rank.setAdapter(adpater);
+            mAdapter = new ProgramRecommendAdaptor(mList);
+            mRecyclerView_recommend.setAdapter(mAdapter);
+
+            adpater = new ProgramRankAdaptor(mData);
+            mRecyclerView_rank.setAdapter(adpater);
 
             mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
             mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
-        }, 110);
+        }, 500);
 
         String serverUrl="http://15.164.102.181//rank.php";
 

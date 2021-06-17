@@ -40,13 +40,13 @@ public class PostscriptFragment extends Fragment {
 
         handler = new Handler();
         handler.postDelayed(() -> {
-//            list = PostscriptData.createContactsList(); // 보여줄 행 개수
-//            recyclerView.setHasFixedSize(true);
-//            adapter = new PostscriptAdapter(getActivity(),list);
-//            recyclerView.setAdapter(adapter);
+            list = PostscriptData.createContactsList(); // 보여줄 행 개수
+            recyclerView.setHasFixedSize(true);
+            adapter = new PostscriptAdapter(getActivity(),list);
+            recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
-        }, 110);
+        }, 500);
 
         // 목록 마지막 확인
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
