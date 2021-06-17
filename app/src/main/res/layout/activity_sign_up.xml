@@ -119,6 +119,7 @@
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
         android:hint="7자리 학번"
+        android:inputType="numberSigned"
         android:maxLength="7"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
