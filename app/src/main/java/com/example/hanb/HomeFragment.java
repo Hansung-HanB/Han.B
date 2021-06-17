@@ -4,6 +4,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +26,7 @@ public class HomeFragment extends Fragment {
     ProgramRecommendAdaptor mAdapter = null;
     ProgramRankAdaptor adpater = null;
     ArrayList<ProgramRecommendItem> mList = new ArrayList<>();
+    Handler handler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,8 +59,17 @@ public class HomeFragment extends Fragment {
         adpater = new ProgramRankAdaptor(mData);
         mRecyclerView_rank.setAdapter(adpater);
 
-        mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
+        handler = new Handler();
+        handler.postDelayed(() -> {
+            mAdapter = new ProgramRecommendAdaptor(mList);
+            mRecyclerView_recommend.setAdapter(mAdapter);
+
+            adpater = new ProgramRankAdaptor(mData);
+            mRecyclerView_rank.setAdapter(adpater);
+
+            mRecyclerView_recommend.setLayoutManager(new LinearLayoutManager(getActivity()));
+            mRecyclerView_rank.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }, 110);
 
         String serverUrl="http://15.164.102.181//rank.php";
 
@@ -84,7 +96,6 @@ public class HomeFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
         adpater.notifyDataSetChanged();
 
-
         addItem("한성토익강좌", "5");
         addItem("내외국인 재학생 연합봉사단", "4.3");
         addItem("영자신문사", "4.2");
@@ -95,8 +106,6 @@ public class HomeFragment extends Fragment {
         addItem("집단상담프로그램", "3");
         addItem("한성대신문사", "2.7");
         addItem("총장님과 식사", "2.5");
-
-
 
         return view;
     }

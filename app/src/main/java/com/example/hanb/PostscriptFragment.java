@@ -23,6 +23,7 @@ public class PostscriptFragment extends Fragment {
     private PostscriptAdapter adapter; //어댑터
     private ArrayList<PostscriptData> list = new ArrayList<>(); //배열 형태
     private Button writeButton_postscript; //글쓰기 버튼
+    Handler handler;
 
     @SuppressLint("ResourceType")
     @Override
@@ -31,11 +32,17 @@ public class PostscriptFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerview_main_list); // 개별 행 모양 불러오기
         list = PostscriptData.createContactsList(); // 보여줄 행 개수
         recyclerView.setHasFixedSize(true);
-        adapter = new PostscriptAdapter(getActivity(), list); //어댑터에 PostscriptData에서 불러온 배열 저장
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())); // 리사이클러뷰 레이아웃 지정
-        recyclerView.setAdapter(adapter); //리사이클러뷰 어댑터 설정
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        adapter.notifyDataSetChanged();
+
+        handler = new Handler();
+        handler.postDelayed(() -> {
+            recyclerView = rootView.findViewById(R.id.recyclerview_main_list); // 개별 행 모양 불러오기
+            list = PostscriptData.createContactsList(); // 보여줄 행 개수
+            recyclerView.setHasFixedSize(true);
+            adapter = new PostscriptAdapter(getActivity(),list);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+        }, 110);
 
         // 목록 마지막 확인
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
